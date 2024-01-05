@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>파라미터</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        <p id="text">알림창임</p>
+        <button id="close" onclick="알림창열기('none')">닫기</button>
+    </div>
+    <!-- <div class="alert-box" id="alert">
+        <p id="text" onclick="글자('아이디를입력하세요')">알림창임</p>
+        <button id="close" onclick="알림창열기('none')">닫기</button>
+    </div> -->
+    <button onclick="알림창열기('block'); ">버튼1</button>
+    <button onclick="알림창열기('block');">버튼2</button>
+
+    <script>
+        function 알림창열기(구멍){
+            document.getElementById('alert').style.display = 구멍;
+            Document.getElementById('text').innerHtml = '아이디입력하셈';
+        }
+        function 글자(구멍) {
+           ;
+        }
+    </script>
+</body>
+</html>

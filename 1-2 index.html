@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동적 ui 만들기</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="alert-box" id="alert">
+        알림창임
+        <button id="close" onclick="document.getElementById('alert').style.display='none';">닫기</button>
+    </div>
+    <button onclick="document.getElementById('alert').style.display = 'block';">버튼</button>
+</body>
+</html>
