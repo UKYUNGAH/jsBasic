@@ -12,7 +12,7 @@
     <!-- !!!숙제!!! -->
     <div class="alert-box" id="alert">
         <p id="title">알림창임</p>
-        <button id="close" onclick="알림창제어('none')">닫기</button>
+        <button id="close" >닫기</button>
     </div>
     <!-- 버튼1을 누르면 아이디 입력으로 텍스트가 바뀌고  -->
     <button onclick="알림창제어('block', '아이디 입력해주세요')">버튼1</button>
@@ -20,6 +20,12 @@
     <button onclick="알림창제어('block', '비밀번호입력해주세요')">버튼2</button>
 
     <script>
+        // onclick 안쓰고 그냥 깔끔하게 쓰기도 가능
+        // function <- 여기 콜백함수임
+        document.getElementById('close').addEventListener('click', function(){
+            document.getElementById('alert').style.display = 'none';
+        })
+
         // 1. P태그 내용을 아이디입력으로 바꿈
         // 2. 띄움
         function 알림창제어(구멍, 구멍2) {
