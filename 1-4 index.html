@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>function</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">```
+    <title>파라미터</title>
     <link rel="stylesheet" href="main.css">
 </head>
+
 <body>
+    <!-- !!!숙제!!! -->
     <div class="alert-box" id="alert">
-        알림창임
-        <button id="close" onclick="알림창닫기()">닫기</button>
+        <p id="title">알림창임</p>
+        <button id="close" onclick="알림창제어('none')">닫기</button>
     </div>
-    <button onclick="알림창열기()">버튼</button>
+    <!-- 버튼1을 누르면 아이디 입력으로 텍스트가 바뀌고  -->
+    <button onclick="알림창제어('block', '아이디 입력해주세요')">버튼1</button>
+    <!-- 버튼2를 누르면 비밀번호 입력으로 텍스트가 바뀌게 짜기 -->
+    <button onclick="알림창제어('block', '비밀번호입력해주세요')">버튼2</button>
+
     <script>
-        function 알림창열기(){
-            document.getElementById('alert').style.display = 'block';
+        // 1. P태그 내용을 아이디입력으로 바꿈
+        // 2. 띄움
+        function 알림창제어(구멍, 구멍2) {
+            document.getElementById('alert').style.display = 구멍;
+            document.getElementById('title').innerHTML = 구멍2;
         }
-        function 알림창닫기(){
-            document.getElementById('alert').style.display='none';
-            ~!
-        }
+
+        // 다른방법이 있지만 위에처럼 축약할수있음
+        // function 아이디알림창() {
+        //     document.getElementById('title').innerHTML = '아이디입력하셈';
+        //     document.getElementById('alert').style.display = 'block';
+        // }
+
+        // function 비번알림창() {
+        //     document.getElementById('title').innerHTML = '비번입력하셈';
+        //     document.getElementById('alert').style.display = 'block';
+        // }
+
+
+        // 파라미터 방법은 이것도 가능함
+        // function 알림창제어(구멍, 구멍2){
+        //     document.getElementById(구멍2).style.display = 구멍;
+        // }
+
+
     </script>
 </body>
+
 </html>
