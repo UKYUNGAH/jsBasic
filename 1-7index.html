@@ -10,6 +10,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <button class="btn btn-danger" id="close">닫기</button>
+        </div>
+      </div> 
+
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
           <span class="navbar-brand">Navbar</span>
@@ -26,38 +33,24 @@
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
       </ul>
+    <!-- 숙제 버튼누르면 모달창 띄우기 -->
+      <button id="test-btn">로그인</button>
 
-      <p class="hello">안녕</p>
-      <p class="hello">안녕</p>
-      <p class="hello">안녕</p>
-      <button id="test-btn">버튼</button>
+
       <script>
- 
-        // 쿼리셀렉터 css처럼 쓰면됨(맨 위에 하나만 알려줌)
-        // document.querySelector('.list-group')
-        // 모르겠으면 개발자 도구 켜서 위에 코드 넣어보면 ul 나옴
-
-        // 쿼리셀렉터all 다 찾아주는 선택자임
-        // document.querySelectorAll('.list-group')
 
         document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
             document.getElementsByClassName('list-group')[0].classList.toggle('show');
         })
 
-        document.querySelectorAll('.hello')[0].innerHTML = '바보';
-        document.querySelectorAll('.hello')[1].innerHTML = '바보';
-        document.querySelectorAll('.hello')[2].innerHTML = '바보';
-        // 위에 코드를 제이쿼리로 변환
-        // $('.hello').html('바보');
-        // css변경
-        // $('.hello').css('color', 'red');
-        // 클래스 추가
-        // $('.hello').addClass('show')
-        
-        // document.querySelector('#test-btn').addEventListener()
-        $('#test-btn').on('click', function(){
-            $('.hello').slideUp();
+        document.getElementById('test-btn').addEventListener('click', function(){
+            document.getElementsByClassName('black-bg')[0].classList.add('show');
         })
+
+        document.getElementById('close').addEventListener('click', function(){
+            document.getElementsByClassName('black-bg')[0].classList.remove('show');
+        })
+
       </script>
 
 
