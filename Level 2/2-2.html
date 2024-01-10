@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 부트스트랩 이용해보기 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>setTimeout 주는법</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+
+        <!-- 서버 전송 -> 액션 -->
+        <!-- 폼 전송시 이동할 입력창 -->
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <span class="badge bg-dark">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <button id="test-btn">로그인</button>
+
+    <script>
+      // ----숙제----
+      // badge 클릭횟수가 홀수면 클릭시 내부 글자를 light로 변경
+      // 클릭횟수가 짝수면 dark로 변경 반복
+      // 몇번 눌렀는지 기억해야함
+      let count = 0;
+
+      document.querySelector(".badge").addEventListener("click", function () {
+        count++;
+        if (count % 2 == 1){
+          document.querySelector(".badge").innerHTML = "light";
+        } else{
+          document.querySelector(".badge").innerHTML = "dark";
+        }
+      });
+
+      //   1. 전송버튼 누르면 저기 인풋에 입력한 값이 공백이면 알림창 띄워주세요~
+      document.querySelector("form").addEventListener("submit", function (e) {
+        if (document.getElementById("email").value == "") {
+          alert("입력하세요!");
+          // 폼 전송 막을때 사용하기
+          e.preventDefault();
+        }
+
+        if (document.getElementById("password").value == "") {
+          alert("입력하세요!");
+          // 폼 전송 막을때 사용하기
+          e.preventDefault();
+        }
+
+        if (document.getElementById("password").value.length < 6) {
+          alert("더 길게 입력하세요!");
+          // 폼 전송 막을때 사용하기
+          e.preventDefault();
+        }
+      });
+
+      document
+        .getElementsByClassName("navbar-toggler")[0]
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("list-group")[0]
+            .classList.toggle("show");
+        });
+
+      document
+        .getElementById("test-btn")
+        .addEventListener("click", function () {
+          document
+            .getElementsByClassName("black-bg")[0]
+            .classList.add("show-modal");
+        });
+
+      document.getElementById("close").addEventListener("click", function () {
+        document
+          .getElementsByClassName("black-bg")[0]
+          .classList.remove("show-modal");
+      });
+
+      // 애니메이션 추가하깅
+      // 애니메이션은 가능하면 css만으로 처리하기(성능저하될수있음)
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
