@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 부트스트랩 이용해보기 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수의 return문법 소수점 다루기</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main2.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+
+        <!-- 서버 전송 -> 액션 -->
+        <!-- 폼 전송시 이동할 입력창 -->
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">Navbar</span>
+        <span class="badge bg-dark">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <div class="alert alert-danger">
+     <span id="num">5</span>초이내 구매시 사은품 증정
+    </div>
+    
+    <div style = "overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="./car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="./car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="./car3.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+
+    <button class="before">이전</button>
+    <button class="next">다음</button>
+
+   
+    <script>
+        /* 함수 쓰는이유
+        1. 긴코드 축약 가능
+        2. 파라미터 추가가능
+        3. return - 함수쓰고 그 자리에 뭔가 뱉고 싶을때~~!!
+        리턴 아래 있는 코드는 더이상 실행 안됨
+        함수 종료 기능을 가지고 있음
+         */
+        function 예시(){
+
+            return 123;
+        }
+
+        let 변수 = 예시()
+        console.log(변수)
+
+        /* 리턴의 용도
+        자료를 넣으면 다른 자료가 나오는 변환기 만들고 싶을때 만든다
+
+        예를들어 부가세를 자주 낸다면
+        계산기를 만들수 있음
+
+        반올림 하는법
+        숫자.toFixed(몇자리 반올림 할건지)
+        펄스플로트, 펄스인트 사용하면 숫자로 잘 변환해줌
+        */
+    
+        console.log(vat(55555))
+
+        function vat(a){
+            var num = (a * 1.1).toFixed(2)
+            return parseFloat(num)
+        }
+
+        vat(50000)
+
+
+        // 숙제 1 함수에 분과 초를 차례로 파타미터로 입력하면 ms단위로 바꿔서 뱉어주기
+        function 함수(a, b){
+            let result = (a * 60 + b) * 1000;
+            return result;
+        }
+
+        console.log(함수(1,30))
+        console.log(함수(2,10))
+
+        //숙제 2 가격을 파라미터로 입력하면 10% 할인가를 뱉는 함수를 만들어봅시다.
+        function 함수2(a, b){
+            let result = a * 0.9;
+            if(b == true){
+                result = result - 1.5;
+            }
+            return result;
+        }
+
+        console.log(함수2(70,false))
+        console.log(함수2(10,true))
+    </script>
+
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
