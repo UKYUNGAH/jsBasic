@@ -48,13 +48,16 @@
         <li class="list-group-item">A fourth item</li>
         <li class="list-group-item">And a fifth one</li>
       </ul>
-    <!-- 숙제 버튼누르면 모달창 띄우기 -->
-      <button id="test-btn">로그인</button>
+
+
+      
+      <div class="main-bg">
+        <h4>Shirts on sale</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+      </div> 
 
 
       <script>
-
-
         // 1. 전송버튼 누르면 저기 인풋에 입력한 값이 공백이면 알림창 띄워주세요~
         document.querySelector('form').addEventListener('submit', function(e){
 
@@ -88,7 +91,7 @@
             document.getElementsByClassName('list-group')[0].classList.toggle('show');
         })
 
-        document.getElementById('test-btn').addEventListener('click', function(){
+        document.getElementById('login').addEventListener('click', function(){
             document.getElementsByClassName('black-bg')[0].classList.add('show-modal');
         })
 

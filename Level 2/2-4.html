@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>setTimeout</title>
+    <title>이미지 슬라이드 만들기</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -65,30 +65,88 @@
     <div class="alert alert-danger">
      <span id="num">5</span>초이내 구매시 사은품 증정
     </div>
+    
+    <div style = "overflow: hidden">
+        <div class="slide-container">
+            <div class="slide-box">
+                <img src="./car1.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="./car2.png" alt="">
+            </div>
+            <div class="slide-box">
+                <img src="./car3.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+
+    <button class="a">이전</button>
+    <button class="b">다음</button>
+
     <script>
      
+     document.querySelector('.slide-1').addEventListener('click', function(){
+        document.querySelector('.slide-container').style.transform =  'translateX(0)'
+     })
+     document.querySelector('.slide-2').addEventListener('click', function(){
+        document.querySelector('.slide-container').style.transform =  'translateX(-100vw)'
+     })
+     document.querySelector('.slide-3').addEventListener('click', function(){
+        document.querySelector('.slide-container').style.transform =  'translateX(-200vw)'
+     })
 
-      // 자바스크립트로 구현하기
-      // 제이쿼리로하면 
-      // $('.alert')(function(){
-      //   $('.alert').hide();
-      // })
-      // 1초후에 코드 실행시켜쥼
-      // setTimeout(function(){
-      //   document.querySelector('.alert').style.display = 'none';
-      // }, 5000)
-      // 1초후에 코드 실행시켜쥼
 
-      // 이렇게도 사용이 가능함!
-        // setTimeout(함수, 1000)
-        // function 함수(){
-        //   console.log('안녕')
+    //  이전 다음 버튼 만들기
+     var 지금사진 = 1;
+     var 지금사진2 = 1;
+
+     document.querySelector('.b').addEventListener('click', function(){
+
+
+        // if(지금보이는 사진이 1이면){
+        //     2번사진 보여주세요
         // }
+        if(지금사진 == 1){
+            document.querySelector('.slide-container').style.transform =  'translateX(-100vw)';
+            지금사진 ++
+        }else if(지금사진 == 2){
+            document.querySelector('.slide-container').style.transform =  'translateX(-200vw)';
+            지금사진++
+        }else{
+            document.querySelector('.slide-container').style.transform =  'translateX(0)';
+        }
+        
+     })
 
-      // 이것도 가능!
-        // addEventListener(함수)
+     document.querySelector('.a').addEventListener('click', function(){
 
-        // 숙제 1초마다 5라는 문자를 1씩 감소 0이되면 div 안보이게
+
+        // if(지금보이는 사진이 1이면){
+        //     2번사진 보여주세요
+        // }
+        if(지금사진2 == 1){
+            document.querySelector('.slide-container').style.transform =  'translateX(-200vw)';
+            지금사진2 --
+        }else if(지금사진2 == 2){
+            document.querySelector('.slide-container').style.transform =  'translateX(0)';
+            지금사진2--
+        }else{
+            document.querySelector('.slide-container').style.transform =  'translateX(-100vw)';
+        }
+        
+     })
+
+
+
+
+
+
+
+
        let count2 = 5;
       
        setInterval(function(){
@@ -153,6 +211,16 @@
         if (document.getElementById("password").value.length < 6) {
           alert("더 길게 입력하세요!");
           // 폼 전송 막을때 사용하기
+          e.preventDefault();
+        }
+
+         // 이메일형식 검사해보기
+         if(/\S+@\S+\.\S+/.test(document.getElementById("email").value)){
+          alert('이메일 형식이 아닙니다.');
+          e.preventDefault();
+        }
+         if(/A-Z/.test(document.getElementById("password").value == false)){
+          alert('대문자가 없는디요');
           e.preventDefault();
         }
       });

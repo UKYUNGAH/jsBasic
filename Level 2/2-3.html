@@ -155,6 +155,16 @@
           // 폼 전송 막을때 사용하기
           e.preventDefault();
         }
+
+         // 이메일형식 검사해보기
+         if(/\S+@\S+\.\S+/.test(document.getElementById("email").value)){
+          alert('이메일 형식이 아닙니다.');
+          e.preventDefault();
+        }
+         if(/A-Z/.test(document.getElementById("password").value == false)){
+          alert('대문자가 없는디요');
+          e.preventDefault();
+        }
       });
     </script>
 
