@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <!-- 부트스트랩 이용해보기 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>스크롤 이벤트 숙제 해설</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main2.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+
+        <!-- 서버 전송 -> 액션 -->
+        <!-- 폼 전송시 이동할 입력창 -->
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <ul class="list-group">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
+    </div>
+
+    <div style="height: 1000px;"></div>
+
+    <!-- 다읽으면 얼럿 띄우기
+    div의 스크롤바 내린 양 + 100 == div의 실제 높이 -->
+    <div class="lorem" style="width: 200px; height: 100px ; overflow-y: scroll;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi amet magni repellat. Possimus, fugit esse. Ullam earum esse cupiditate omnis quibusdam, incidunt repudiandae. Laudantium impedit, saepe reprehenderit sit hic non?</div>
+
+
+
+    <script>
+        // 페이지 스크롤바 100이상 내리면 로고 폰트사이즈 줄이셈
+        // 움직일때마다 실행해야함
+        window.addEventListener('scroll', function(){
+            if(window.scrollY > 100){
+                document.querySelector('.navbar-brand').style.fontSize = '20px'
+            } else {
+                document.querySelector('.navbar-brand').style.fontSize = '25px'
+            }
+        })
+
+        // 숙제 2
+        document.querySelector('.lorem').addEventListener('scroll', function(){
+            var 스크롤양 = document.querySelector('.lorem').scrollTop;
+            var 실제높이 = document.querySelector('.lorem').scrollHeight;
+            var 높이 = document.querySelector('.lorem').clientHeight;
+
+            if(스크롤양 + 높이 > 실제높이 - 10){
+                alert('다읽음');
+            }
+        })
+
+        /* scroll 주의점 
+        컴퓨터에 부담됨
+        바닥체크도 여러번 중복될수 있음 */
+        
+        // 현재페이지 끝까지 스크롤 체크
+        document.querySelector('.lorem').addEventListener('scroll', function(){
+            var 스크롤양 = document.querySelector('html').scrollTop;
+            var 실제높이 = document.querySelector('.lorem').scrollHeight;
+            var 높이 = document.querySelector('.lorem').clientHeight;
+
+            if(스크롤양 + 높이 > 실제높이 - 10){
+                alert('다읽음');
+            }
+        })
+    </script>
+
+
+    <!-- <script>
+        /* 스크롤바로 이벤트 기능 만들기 
+        
+        1. 스크롤바 내리면 로고 작게 만들기*/
+
+        // 유저가 스크롤바 얼마나 내린지 확인하는법
+        // 윈도우에 감지
+
+        /* 유저가 스크롤바 내렸나 감지해주는것
+        window.scrollY(가로는 X임) / pageYoffset 같은거임
+
+        강제로 스크롤하기
+        window.scrollTo(x,y) 
+        * 뷰트스트랩 설치하면 스무스하게 스크롤바 내려가기 때문에
+        css root 스크롤 제어해주면 됨
+        */
+        
+        // window.addEventListener('scroll', function(){
+        //     console.log(window.scrollTo(0, 100))
+        // })
+
+
+        // ----숙제----
+        // 스크롤바 100px 이상 내리면 로고 폰트사이즈 줄이기
+
+        window.addEventListener('scroll', function(){
+            if(window.scrollY > 100){
+                document.querySelector('.navbar-brand').style.fontSize = '20px';
+            }else{
+                document.querySelector('.navbar-brand').style.fontSize = '25px';
+            }
+            
+        })
+
+
+        // div의 스크롤바 내린 양 +  눈에보이는 div 높이 == div의 실제 높이
+        // 디브의 실제 높이 scrollHeight 사용
+        document.querySelector('.lorem').addEventListener('scroll', function(){
+          var 스크롤양 = document.querySelector('.lorem').scrollTop;
+          var 실제높이 = document.querySelector('.lorem').scrollHeight;
+          var 높이 = document.querySelector('.lorem').clientHeight;
+          console.log(스크롤양, 실제높이 > 높이 - 10);
+            if(스크롤양+ 높이 > 실제높이 -10){
+                alert('다읽음')
+            }
+        })
+
+
+
+        // ----숙제2----
+        // 스크롤바 끝까지 내리면 얼럿창 띄우기
+    </script> -->
+
+
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
